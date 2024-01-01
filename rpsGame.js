@@ -6,6 +6,7 @@ function getComputerChoice() {
 //console.log(getComputerChoice());
 
 function game(playerSelection, computerSelection) {
+    for (let i = 0; i < 5; i++) {
         if (playerSelection === computerSelection) {
             return 'It is a tie!';
         }
@@ -17,6 +18,7 @@ function game(playerSelection, computerSelection) {
         else {
             return `You lose! ${computerSelection} beat ${playerSelection}`
         }
+    }
 }
 var playerChoice= prompt('Enter your choice.').toLowerCase();
 //console.log(playerChoice);
