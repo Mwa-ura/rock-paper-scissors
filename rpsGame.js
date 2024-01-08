@@ -5,7 +5,7 @@ function getComputerChoice() {
 }
 //console.log(getComputerChoice());
 
- /* function game(playerSelection, computerSelection) {
+ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log('It is a tie!');
     }
@@ -18,55 +18,71 @@ function getComputerChoice() {
         console.log(`You lose! ${computerSelection} beat ${playerSelection}`)
     }
  }
- */
-
-/*
 //console.log(playerChoice);
-var computerChoice = getComputerChoice();
 //console.log(computerChoice)
-//console.log(
-let count = 1;
-for (let i = 0; i < count; i++) {
-    var playerChoice = prompt('Enter your choice.').toLowerCase();
-    game(playerChoice, computerChoice);
-}
-*/
+
 const container = document.querySelector('#container');
+
+const game = () => {
+    for (let i = 0; i < 1; i++) {
+        let computerChoice = getComputerChoice();
+        // var playerChoice = prompt('Enter your choice.').toLowerCase();
+        playRound(playerChoice, computerChoice);
+    }
+}
+game();
+const rockValue = () => rockButton.value;
+const paperValue = () => paperButton.value;
+const scissorsValue = () => scissorButton.value;
+
+// Test rock
+let computerChoice = getComputerChoice();
 const rockButton = document.createElement('button');
 rockButton.textContent = 'Rock';
+rockButton.value = 'rock';
 rockButton.style.marginRight = '4px';
-/*
-// rockButton.addEventListener('click', )
-const rockPress = () => {
-    if (playerSelection==='rock' && (computerSelection==='scissors' || computerSelection==='paper')) {
-        console.log(`You win! ${playerSelection} beat ${computerSelection}`); 
+rockButton.addEventListener('click', () => {
+    let playerChoice = rockButton.value;
+    if (computerChoice===playerChoice) {
+        console.log('Its a tie!')
+    } else if (playerChoice &&(computerChoice==='scissors' || computerChoice==='paper')){
+        console.log('You won');
     }
-
-};
-
-// paperButton eventListener
-const scissorPress = () => {
-    if ((playerSelection==='scissors' && computerSelection==='paper')) {
-        console.log(`You win! ${playerSelection} beat ${computerSelection}`);
-    }
-};
-
-// scissorsButton
-const paperPress = () => {
-    if (playerSelection === 'paper' && (computerChoice==='rock' || computerSelection==='scissors')) {
-        console.log(`You lose! ${playerSelection} beat ${computerSelection}`);
-    }
-}
-*/
-
+})
 container.appendChild(rockButton);
+
+// Test paper
 const paperButton = document.createElement('button');
 paperButton.textContent = 'Paper';
 paperButton.value = 'paper';
-console.log(paperButton.value);
 paperButton.style.marginRight = '4px';
+paperButton.addEventListener('click', ()=> {
+    let playerChoice = paperButton.value;
+    if (playerChoice===computerChoice) {
+        console.log('Its a tie!');
+    } else if (playerChoice && (computerChoice==='rock' || computerChoice==='scissors')){
+        console.log('You lose');
+    }
+});
 container.appendChild(paperButton);
+
+// Test Scissors
 const scissorButton = document.createElement('button');
 scissorButton.textContent = 'Scissors';
+scissorButton.value = 'scissors';
 scissorButton.style.marginRight = '4px';
+scissorButton.addEventListener('click', () => {
+    let playerChoice = scissorButton.value;
+    if (playerChoice===computerChoice) {
+        console.log('Its a tie!');
+    } else if (playerChoice && computerChoice==='paper') {
+        console.log('You win!');
+    } else if (playerChoice && computerChoice==='rock') {
+        console.log(`You lose ${computerChoice} beat ${playerChoice}`);
+    }
+});
 container.appendChild(scissorButton);
+
+
+
+
