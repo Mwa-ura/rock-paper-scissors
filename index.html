@@ -2,11 +2,32 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Scissors Rock Paper Game</title>
-        
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="rpsGame.js"></script> 
     </head>
     <body>
-        <div id="container"></div> 
-        <script src="rpsGame.js"></script> 
+        <section>
+            <h1>Rock Paper Scissors</h1>
+            <div id="score">
+                <div id="playerScore">
+                    <h2>Player</h2>
+                    <div id="p-score">0</div> 
+                </div>
+                <div id="computerScore">
+                    <h2>Computer</h2>
+                    <div id="c-score">0</div>
+                </div> 
+                <div id="moves">Choose your Move</div>
+                <div id="movesLeft">Moves left: 10</div>
+            </div>
+            <div class="options">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+            <div id="result"></div>
+            <button id="reload"></button>
+        </section>
     </body>
 </html>
